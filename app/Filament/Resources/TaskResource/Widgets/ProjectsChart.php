@@ -4,11 +4,11 @@ namespace App\Filament\Resources\TaskResource\Widgets;
 
 use App\Models\Project;
 use Filament\Widgets\ChartWidget;
-use Illuminate\Support\Carbon;
 
 class ProjectsChart extends ChartWidget
 {
     protected static ?string $heading = 'Projects Overview';
+
     protected static ?int $sort = 1;
 
     protected function getData(): array
