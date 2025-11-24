@@ -18,7 +18,7 @@ class ProjectFactory extends Factory
             'priority' => fake()->randomElement(['low', 'medium', 'high', 'critical']),
             'start_date' => $startDate,
             'due_date' => $dueDate,
-            'budget' => fake()->optional()->randomFloat(2, 10000, 500000),
+            'budget' => fake()->randomFloat(2, 10000, 500000),
             'actual_cost' => fake()->randomFloat(2, 0, 100000),
             'progress' => fake()->numberBetween(0, 100),
         ];

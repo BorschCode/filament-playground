@@ -15,7 +15,7 @@ class TaskFactory extends Factory
             'priority' => fake()->randomElement(['low', 'medium', 'high', 'critical']),
             'start_date' => fake()->optional()->dateTimeBetween('-1 month', 'now'),
             'due_date' => fake()->optional()->dateTimeBetween('now', '+2 months'),
-            'estimated_hours' => fake()->optional()->randomFloat(2, 1, 40),
+            'estimated_hours' => fake()->randomFloat(2, 1, 40),
             'actual_hours' => fake()->randomFloat(2, 0, 20),
             'order' => fake()->numberBetween(0, 100),
         ];
