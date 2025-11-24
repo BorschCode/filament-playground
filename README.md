@@ -20,9 +20,25 @@ A comprehensive Laravel 12 + FilamentPHP v3 + Neuron AI application demonstratin
 ![Landing Page](docs/index.png)
 *Modern landing page showcasing the SaaS solution with feature highlights and technology stack badges*
 
-### Admin Panel - Client Management
+### Admin Panel - Dashboard
 ![Admin Panel](docs/admin.png)
 *FilamentPHP admin panel with advanced table features, filtering, and bulk actions*
+
+### Client Management - Edit Form
+![Edit Client](docs/edit_client.png)
+*Comprehensive client editing form with all contact information and business details*
+
+### Data Persistence
+![Save Confirmation](docs/save.png)
+*Successful data save confirmation showing the robust data handling capabilities*
+
+### AI Chat Integration - Success
+![AI Chat Success](docs/chat%20with%20ai%20food.png)
+*Neuron AI integration working successfully with food-related queries*
+
+### AI Chat Integration - Error Handling
+![AI Chat Error](docs/chat%20with%20ai%20fail.png)
+*AI chat system with proper error handling and user feedback*
 
 ## 🚀 Features
 
@@ -66,8 +82,24 @@ A comprehensive Laravel 12 + FilamentPHP v3 + Neuron AI application demonstratin
 
 1. **Clone and Setup**
 ```bash
-cd /mnt/256-m2/projects/filament
+# Clone the repository
+git clone <repository-url> filament-saas
+cd filament-saas
+
+# Copy environment file
+cp .env.example .env
+
+# Start Docker containers
 vendor/bin/sail up -d
+
+# Install dependencies and setup database
+vendor/bin/sail composer install
+vendor/bin/sail artisan key:generate
+vendor/bin/sail artisan migrate:fresh --seed
+
+# Install and build frontend assets
+vendor/bin/sail npm install
+vendor/bin/sail npm run build
 ```
 
 2. **Access the Application**
@@ -137,18 +169,46 @@ All major entities have Filament admin resources:
 
 ## 🤖 Neuron AI Integration
 
-Neuron AI (v2.8.11) is installed and ready for:
-- Automated task generation
-- Smart scheduling
-- Email/Telegram notifications
-- Wikipedia research and content generation
-- Custom AI workflows
+Neuron AI (v2.8.11) is a powerful PHP framework for creating AI agents integrated into your Laravel application.
 
-### Example Use Cases
-1. Auto-generate project tasks from descriptions
-2. Send automated client updates via Telegram
-3. Research industry information for client profiles
-4. Generate project reports
+### 🎯 Quick Start
+
+```php
+use App\TaskAnalyzerAgent;
+use NeuronAI\Chat\Messages\UserMessage;
+
+$agent = TaskAnalyzerAgent::make();
+$response = $agent->chat(
+    new UserMessage("Analyze this task: Build a REST API")
+);
+
+echo $response->getContent();
+```
+
+### ✨ Features
+
+- **Multiple LLM Providers**: OpenAI, Anthropic, Gemini, Ollama, and more
+- **Agent Memory**: Maintains conversation context automatically
+- **Tool Integration**: Connect agents to your database, APIs, and services
+- **Structured Output**: Extract data in typed PHP classes
+- **RAG Support**: Build document-based Q&A systems
+- **MCP Connector**: Use Model Context Protocol tools
+
+### 📖 Complete Guide
+
+Check out the **[Neuron AI Integration Guide](docs/NEURON_AI_GUIDE.md)** for:
+- Setting up API keys
+- Creating custom agents
+- Advanced features and examples
+- Best practices
+
+### 💡 Example Use Cases
+
+1. **Task Analysis**: Auto-generate project tasks with time estimates
+2. **Customer Support**: AI-powered support chatbots
+3. **Data Analysis**: Query databases using natural language
+4. **Content Generation**: Automated report and documentation writing
+5. **Code Review**: Analyze code and suggest improvements
 
 ## 📝 Sample Data
 
