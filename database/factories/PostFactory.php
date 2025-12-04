@@ -17,6 +17,10 @@ class PostFactory extends Factory
     public function definition(): array
     {
         $title = fake()->sentence();
+        $images = [
+            '/img/vue.png',
+            null,
+        ];
 
         return [
             'user_id' => \App\Models\User::factory(),
@@ -25,7 +29,7 @@ class PostFactory extends Factory
             'slug' => str($title)->slug().'-'.fake()->unique()->numberBetween(1000, 9999),
             'excerpt' => fake()->paragraph(),
             'content' => fake()->paragraphs(5, true),
-            'featured_image' => fake()->imageUrl(1200, 630),
+            'featured_image' => fake()->randomElement($images),
             'is_published' => fake()->boolean(70),
             'published_at' => fake()->optional(0.7)->dateTimeBetween('-1 year', 'now'),
         ];
