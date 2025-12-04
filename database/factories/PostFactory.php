@@ -10,6 +10,36 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class PostFactory extends Factory
 {
     /**
+     * Get all available images from the public/img directory.
+     *
+     * @return array<string|null>
+     */
+    protected static function getAvailableImages(): array
+    {
+        $images = [null]; // Include null for posts without images
+        $publicPath = public_path('img');
+
+        if (is_dir($publicPath)) {
+            // Get images from main img directory
+            $mainImages = glob($publicPath.'/*.{png,jpg,jpeg,gif,webp}', GLOB_BRACE);
+            foreach ($mainImages as $imagePath) {
+                $images[] = '/img/'.basename($imagePath);
+            }
+
+            // Get SVG images from svg subdirectory
+            $svgPath = $publicPath.'/svg';
+            if (is_dir($svgPath)) {
+                $svgImages = glob($svgPath.'/*.svg');
+                foreach ($svgImages as $svgPath) {
+                    $images[] = '/img/svg/'.basename($svgPath);
+                }
+            }
+        }
+
+        return $images;
+    }
+
+    /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
@@ -17,10 +47,7 @@ class PostFactory extends Factory
     public function definition(): array
     {
         $title = fake()->sentence();
-        $images = [
-            '/img/vue.png',
-            null,
-        ];
+        $images = static::getAvailableImages();
 
         return [
             'user_id' => \App\Models\User::factory(),
