@@ -4,6 +4,7 @@
 [![PHP Version](https://img.shields.io/badge/PHP-8.4-777BB4?logo=php&logoColor=white)](https://php.net)
 [![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)](https://laravel.com)
 [![FilamentPHP](https://img.shields.io/badge/Filament-v3-FDAE4B?logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiAxMkwxMiAyMkwyMiAxMkwxMiAyWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+&logoColor=white)](https://filamentphp.com)
+[![Laravel Scout](https://img.shields.io/badge/Laravel_Scout-10.22-FF2D20?logo=laravel&logoColor=white)](https://laravel.com/docs/scout)
 [![MongoDB](https://img.shields.io/badge/MongoDB-7.0-47A248?logo=mongodb&logoColor=white)](https://mongodb.com)
 [![Node.js](https://img.shields.io/badge/Node.js-22-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
@@ -524,6 +525,7 @@ vendor/bin/sail artisan make:filament-resource YourModel --generate --no-interac
 
 - [Laravel Documentation](https://laravel.com/docs)
 - [FilamentPHP Documentation](https://filamentphp.com/docs)
+- [Laravel Scout Documentation](https://laravel.com/docs/scout)
 - [Laravel MongoDB Documentation](https://github.com/mongodb/laravel-mongodb)
 - [MongoDB Documentation](https://www.mongodb.com/docs/)
 - [Inertia.js Documentation](https://inertiajs.com/)
